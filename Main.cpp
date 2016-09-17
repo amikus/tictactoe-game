@@ -9,7 +9,11 @@
 #include <GL/glut.h>
 #include "XPiece.h"
 #include "OPiece.h"
+#include "GamePiece.h"
 #include "Gameboard.h"
+
+#define XPIECE 6
+#define OPIECE 9
 
 // establish screen size
 const int screenWidth = 640;		// width of screen window in pixels 
@@ -20,9 +24,8 @@ GLdouble A, B, C, D;				// values used for scaling and shifting
 GameBoard *gameboard;
 
 // Create game pieces
-XPiece *xpiece1;
-
-
+XPiece *xPiece1;
+OPiece *oPiece1;
 
 //<<<<<<<<<<<<<<<<<<<<<<< custom random function>>>>>>>>>>>>>>>>>>>>
 
@@ -69,7 +72,9 @@ void myDisplay(void)
 	glClear(GL_COLOR_BUFFER_BIT);			// clear the screen 
 
 	gameboard->drawGameBoard();
-	xpiece1->drawPiece();
+
+	xPiece1->draw(GL_RENDER);
+	oPiece1->draw(GL_RENDER);
 
 	glutSwapBuffers();						// swap buffers
 
@@ -82,6 +87,10 @@ void myDisplay(void)
 //<<<<<<<<<<<<<<<<<<<<<<<< main >>>>>>>>>>>>>>>>>>>>>>
 int main(int argc, char** argv)
 {
+
+	xPiece1 = new XPiece(550, 150, XPIECE);
+	oPiece1 = new OPiece(550, 75, OPIECE);
+
 	glutInit(&argc, argv);          // initialize the toolkit
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);	// set display mode
 	glutInitWindowSize(screenWidth, screenHeight);	// set window size

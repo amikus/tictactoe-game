@@ -20,14 +20,13 @@ protected:
 
 	// changeable variables
 	GLfloat x, y;
-	GLfloat *color;
 	GLint id;
 
 	bool draggable;
 
 public:
 
-	GamePiece(GLfloat x, GLfloat y, GLfloat *c, GLint id);	// constructor
+	GamePiece(GLfloat x, GLfloat y, GLint id);				// constructor
 	~GamePiece();											// destructor
 
 	void setXY(GLfloat x, GLfloat y);		// set xy positions

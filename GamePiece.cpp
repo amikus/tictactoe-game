@@ -1,10 +1,9 @@
 #include "GamePiece.h"
 
 // GamePiece constructor
-GamePiece::GamePiece(GLfloat x, GLfloat y, GLfloat *c, GLint id) {
+GamePiece::GamePiece(GLfloat x, GLfloat y, GLint id) {
 	this->x = x;
 	this->y = y;
-	color = c;
 	this->id = id;
 };
 

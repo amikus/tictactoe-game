@@ -20,7 +20,7 @@ protected:
 
 public:
 
-	OPiece(GLfloat x, GLfloat y, GLfloat *c, GLint id);	// constructor
+	OPiece(GLfloat x, GLfloat y, GLint id);				// constructor
 	~OPiece();											//  destructor
 
 	virtual void draw(GLenum mode);		// draw piece

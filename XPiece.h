@@ -20,7 +20,7 @@ protected:
 
 public:
 
-	XPiece(GLfloat x, GLfloat y, GLfloat *c, GLint id);	// constructor
+	XPiece(GLfloat x, GLfloat y, GLint id);				// constructor
 	~XPiece();											//  destructor
 
 	virtual void draw(GLenum mode);		// draw piece
