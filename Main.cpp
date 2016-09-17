@@ -49,6 +49,13 @@ void myInit(void)
 void myTimer(int iUnused)
 {
 	// update animations and redraw
+	// glutPostRedisplay();
+}
+
+//<<<<<<<<<<<<<<<<<<<<<<<< myIdle >>>>>>>>>>>>>>>>>
+void myIdle()
+{
+	// update animations and redraw
 	glutPostRedisplay();
 }
 
@@ -80,6 +87,8 @@ int main(int argc, char** argv)
 
 
 	myInit();						// additional initializations
+
+	glutIdleFunc(myIdle);
 
 	glutMainLoop(); 				// perpetual loop
 
