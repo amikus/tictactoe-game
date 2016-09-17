@@ -20,7 +20,7 @@ GLdouble A, B, C, D;				// values used for scaling and shifting
 GameBoard *gameboard;
 
 // Create game pieces
-
+XPiece *xpiece1;
 
 
 
@@ -69,6 +69,7 @@ void myDisplay(void)
 	glClear(GL_COLOR_BUFFER_BIT);			// clear the screen 
 
 	gameboard->drawGameBoard();
+	xpiece1->drawPiece();
 
 	glutSwapBuffers();						// swap buffers
 

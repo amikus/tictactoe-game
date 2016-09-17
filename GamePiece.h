@@ -19,14 +19,21 @@ protected:
 	// unchanging variables
 
 	// changeable variables
+	GLfloat x, y;
+	GLfloat *color;
+	GLint id;
+
 	bool draggable;
 
 public:
 
-	virtual void drawPiece();			// draw
+	GamePiece(GLfloat x, GLfloat y, GLfloat *c, GLint id);	// constructor
+	~GamePiece();											// destructor
 
-	GamePiece();						//  constructor
-	~GamePiece();						//  destructor
+	void setXY(GLfloat x, GLfloat y);	// set xy positions
+	virtual void draw(GLenum mode) = 0;		// draw piece
+
+	
 
 
 };
