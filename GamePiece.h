@@ -14,32 +14,18 @@ using namespace std;
 
 class GamePiece {
 
-private:
+protected:
 
 	// unchanging variables
 
 	// changeable variables
-	float corner1x, corner1y;
-	float corner2x, corner2y;
-	float corner3x, corner3y;
-	float corner4x, corner4y;
 	bool draggable;
 
-	// used for storing dot coordinates
-	struct Point {
-		double x, y;
-		Point(double px, double py) : x(px), y(py) {}
-	};
-
-
 public:
-	// array of dot coordinates
-	vector<Point> points;
 
+	virtual void drawPiece();			// draw
 
-	void drawGamePiece();				// draw shape and dot array
-
-	GamePiece();			//  constructor
+	GamePiece();						//  constructor
 	~GamePiece();						//  destructor
 
 

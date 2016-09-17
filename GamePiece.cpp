@@ -4,7 +4,7 @@
 GamePiece::GamePiece() {
 
 	// draw the GamePiece
-	drawGamePiece();
+	drawPiece();
 };
 
 
@@ -14,7 +14,7 @@ GamePiece::~GamePiece() {
 }
 
 // draw GamePiece
-void GamePiece::drawGamePiece() {
+void GamePiece::drawPiece() {
 
 	// set color here
 

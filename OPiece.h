@@ -13,11 +13,14 @@
 
 using namespace std;
 
-class OPiece :GamePiece {
+class OPiece: public GamePiece {
 
 private:
 
 public:
-	OPiece();			//  constructor
-	~OPiece();			//  destructor
+
+	void drawPiece();			// draw
+
+	OPiece();					//  constructor
+	~OPiece();					//  destructor
 };

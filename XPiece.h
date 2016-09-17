@@ -14,12 +14,15 @@
 
 using namespace std;
 
-class XPiece :GamePiece {
+class XPiece :public GamePiece {
 
 private:
 
 public:
-	XPiece();			//  constructor
-	~XPiece();			//  destructor
+
+	void drawPiece();					// draw
+
+	XPiece();							//  constructor
+	~XPiece();							//  destructor
 
 };
