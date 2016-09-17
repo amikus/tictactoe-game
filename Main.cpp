@@ -37,7 +37,7 @@ void myInit(void)
 {
 	glClearColor(0.0, 0.0, 0.0, 0.0);		// background color: black
 	glColor3f(1.0f, 1.0f, 1.0f);			// drawing color: white 
-	glPointSize(2.0);						// a 'dot' is 2 by 2 pixels
+	glLineWidth(5.0);						// a line is 5 pixels wide
 	glMatrixMode(GL_PROJECTION); 			// set "camera shape"
 	glLoadIdentity();
 	gluOrtho2D(0.0, (GLdouble)screenWidth, 0.0, (GLdouble)screenHeight);
