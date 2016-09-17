@@ -30,10 +30,7 @@ public:
 	GamePiece(GLfloat x, GLfloat y, GLfloat *c, GLint id);	// constructor
 	~GamePiece();											// destructor
 
-	void setXY(GLfloat x, GLfloat y);	// set xy positions
+	void setXY(GLfloat x, GLfloat y);		// set xy positions
 	virtual void draw(GLenum mode) = 0;		// draw piece
-
-	
-
 
 };

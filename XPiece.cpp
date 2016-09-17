@@ -1,7 +1,7 @@
 #include "XPiece.h"
 
 // XPiece constructor
-XPiece::XPiece() {
+XPiece::XPiece(GLfloat x, GLfloat y, GLfloat *c, GLint id): GamePiece(x, y, color, id)  {
 
 };
 
@@ -12,18 +12,19 @@ XPiece::~XPiece() {
 }
 
 // draw XPiece
-void XPiece::drawPiece() {
+void XPiece::draw(GLenum mode) {
 
-	// set color here
-	glColor3f(1.0f, 0.0f, 0.0f);
+	if (mode == GL_SELECT) glLoadName(id);
 
-	// draw GamePiece
+	// set color
+	glColor3fv(color);
+
+	// draw shape
 	glBegin(GL_POLYGON);
-
+		glVertex2f(x - 1.5, y - 1.5);
+		glVertex2f(x + 1.0, y + 1.0);
+		glVertex2f(x + 1.5, y + 0.5);
 	glEnd();
-
-	// set color back to white
-	glColor3f(1.0f, 1.0f, 1.0f);
 
 }
 

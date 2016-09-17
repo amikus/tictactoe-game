@@ -16,13 +16,12 @@ using namespace std;
 
 class XPiece :public GamePiece {
 
-private:
+protected:
 
 public:
 
-	void drawPiece();					// draw
+	XPiece(GLfloat x, GLfloat y, GLfloat *c, GLint id);	// constructor
+	~XPiece();											//  destructor
 
-	XPiece();							//  constructor
-	~XPiece();							//  destructor
-
+	virtual void draw(GLenum mode);		// draw piece
 };

@@ -9,18 +9,20 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
+
 #include "GamePiece.h"
 
 using namespace std;
 
 class OPiece: public GamePiece {
 
-private:
+protected:
 
 public:
 
-	void drawPiece();			// draw
+	OPiece(GLfloat x, GLfloat y, GLfloat *c, GLint id);	// constructor
+	~OPiece();											//  destructor
 
-	OPiece();					//  constructor
-	~OPiece();					//  destructor
+	virtual void draw(GLenum mode);		// draw piece
+
 };

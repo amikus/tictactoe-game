@@ -1,7 +1,7 @@
 #include "OPiece.h"
 
-// OPiece Constructor
-OPiece::OPiece() {
+// OPiece constructor
+OPiece::OPiece(GLfloat x, GLfloat y, GLfloat *c, GLint id) : GamePiece(x, y, color, id) {
 
 };
 
@@ -12,18 +12,18 @@ OPiece::~OPiece() {
 }
 
 // draw OPiece
-void OPiece::drawPiece() {
+void OPiece::draw(GLenum mode) {
 
-	// set color here
+	if (mode == GL_SELECT) glLoadName(id);
+	
+	// set color
+	glColor3fv(color);
 
-	// draw GamePiece
+	// draw shape
 	glBegin(GL_POLYGON);
-
-	// draw stuff here
-
+		glVertex2f(x - 1.5, y - 1.5);
+		glVertex2f(x + 1.0, y + 1.0);
+		glVertex2f(x + 1.5, y + 0.5);
 	glEnd();
-
-	// set color back to white
-	glColor3f(1.0f, 1.0f, 1.0f);
 
 }
