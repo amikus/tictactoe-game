@@ -54,7 +54,24 @@ void myInit(void)
 	gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
 }
 
+//<<<<<<<<<<<<<<<<<<<<<<<< displayText >>>>>>>>>>>>>>>>>
+void displayText(GLfloat x, GLfloat y, char *p, GLfloat scale)
+{
+	glPushMatrix();
 
+		// position and scale text
+		glTranslatef(x, y, 0);
+		glScalef(scale, scale, scale);
+
+		// cycle through characters
+		for (; *p; p++)
+		{
+			glutStrokeCharacter(GLUT_STROKE_ROMAN, *p);
+		}
+
+	glPopMatrix();
+
+}
 //<<<<<<<<<<<<<<<<<<<<<<<< myIdle >>>>>>>>>>>>>>>>>
 void myIdle()
 {
@@ -74,6 +91,11 @@ void myDisplay(void)
 	// draw pieces
 	xPiece->draw(GL_RENDER);
 	oPiece->draw(GL_RENDER);
+
+	// write words
+	glColor3f(1.0f, 1.0f, 1.0f);						// set word color to white
+	displayText(-1.75f, -1.0f, "Andrew Klem's", 0.004);
+	displayText(-1.75f, -1.75f, "Tic Tac Toe", 0.004);
 
 	// swap buffers
 	glutSwapBuffers();
