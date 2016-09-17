@@ -37,9 +37,9 @@ int random(int m)
 	return rand() % m;
 }
 
-// I don't understand this function...
+
 double d2w(int d) {
-	return (d / screenWidth) * 4.0 - screenHeight;
+	return (d / 500.0) * 4.0 - 2.0;
 }
 
 
@@ -52,7 +52,6 @@ void myInit(void)
 	glMatrixMode(GL_PROJECTION); 			// set "camera shape"
 	glLoadIdentity();						// reset matrix
 	gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
-
 }
 
 
@@ -138,8 +137,8 @@ void click(int x, int y)
 		gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
 
 		// redraw the pieces
-		//xPiece->draw(GL_SELECT);
-		//oPiece->draw(GL_SELECT);
+		xPiece->draw(GL_SELECT);
+		oPiece->draw(GL_SELECT);
 
 		glMatrixMode(GL_PROJECTION);
 
@@ -166,7 +165,7 @@ void myMouse(int button, int state, int x, int y)
 void myMotion(int x, int y)
 {
 	// set new xy coordinates for object that's clicked on
-	//object->setXY(d2w(x), d2w(screenHeight - y));
+	object->setXY(d2w(x), d2w(500 - y));
 	glutPostRedisplay();
 }
 
