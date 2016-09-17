@@ -15,6 +15,7 @@ GameBoard::~GameBoard() {
 void GameBoard::drawGameBoard() {
 
 	// set color here
+	glColor3f(0.0f, 0.0f, 1.0f);
 
 	// draw GamePiece
 	glBegin(GL_POLYGON);
