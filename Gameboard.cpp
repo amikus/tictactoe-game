@@ -14,13 +14,27 @@ GameBoard::~GameBoard() {
 // draw GameBoard
 void GameBoard::drawGameBoard() {
 
-	// set color here
+	// set color to blue
 	glColor3f(0.0f, 0.0f, 1.0f);
 
-	// draw GamePiece
-	glBegin(GL_POLYGON);
+	// draw GameBoard
+	glBegin(GL_LINES);
 
-	// draw stuff here
+		// top line
+		glVertex2f(75.0, 325.0);
+		glVertex2f(375.0, 325.0);
+
+		// bottom line
+		glVertex2f(75.0, 225.0);
+		glVertex2f(375.0, 225.0);
+
+		// left line
+		glVertex2f(175.0, 425.0);
+		glVertex2f(175.0, 125.0);
+
+		// right line
+		glVertex2f(275.0, 425.0);
+		glVertex2f(275.0, 125.0);
 
 	glEnd();
 

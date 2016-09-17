@@ -9,11 +9,15 @@
 #include <GL/glut.h>
 #include "XPiece.h"
 #include "OPiece.h"
+#include "Gameboard.h"
 
 // establish screen size
 const int screenWidth = 640;		// width of screen window in pixels 
 const int screenHeight = 480;		// height of screen window in pixels
 GLdouble A, B, C, D;				// values used for scaling and shifting
+
+// Create game board
+GameBoard *gameboard;
 
 // Create game pieces
 
@@ -64,6 +68,7 @@ void myDisplay(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT);			// clear the screen 
 
+	gameboard->drawGameBoard();
 
 	glutSwapBuffers();						// swap buffers
 
