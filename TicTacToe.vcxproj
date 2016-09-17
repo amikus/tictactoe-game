@@ -148,11 +148,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Gameboard.h" />
     <ClInclude Include="GamePiece.h" />
+    <ClInclude Include="OPiece.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="XPiece.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Gameboard.cpp" />
     <ClCompile Include="GamePiece.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="OPiece.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="XPiece.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

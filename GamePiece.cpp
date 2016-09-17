@@ -1,11 +1,9 @@
 #include "GamePiece.h"
 
-// Turtle constructor
+// GamePiece constructor
 GamePiece::GamePiece() {
 
-
-
-	// draw the Turtle
+	// draw the GamePiece
 	drawGamePiece();
 };
 
@@ -15,16 +13,8 @@ GamePiece::~GamePiece() {
 
 }
 
-// draw GamePiece and dot array
+// draw GamePiece
 void GamePiece::drawGamePiece() {
-
-	// draw dot array
-	vector<Point>::const_iterator it;
-	for (it = points.begin(); it != points.end(); ++it) {
-		glBegin(GL_POINTS);
-		glVertex2i((*it).x, (*it).y);
-		glEnd();
-	}
 
 	// set color here
 

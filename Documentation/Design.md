@@ -14,7 +14,7 @@ To create a Tic Tac Toe game that plays a human against the computer.
 * GameBoard - Traditional tic tac toe board in octothorp shape
 * GamePiece - Parent class for X and O pieces
     * draggable - Binary flag to determine whether this piece is currently able to be moved.
-    * drawPiece() - Draw game piece
+    * drawGamePiece() - Draw game piece
 * XPiece - Human player piece, inherits from GamePiece
 	* xShape - Array of values representing X-shaped piece
 * OPiece - Computer opponent piece, inherits from GamePiece

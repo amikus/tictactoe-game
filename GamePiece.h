@@ -23,7 +23,7 @@ private:
 	float corner2x, corner2y;
 	float corner3x, corner3y;
 	float corner4x, corner4y;
-	float angle;
+	bool draggable;
 
 	// used for storing dot coordinates
 	struct Point {

@@ -7,7 +7,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <GL/glut.h>
-#include "GamePiece.h"
+#include "XPiece.h"
+#include "OPiece.h"
 
 // establish screen size
 const int screenWidth = 640;		// width of screen window in pixels 
