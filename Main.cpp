@@ -25,13 +25,15 @@ GLdouble A, B, C, D;				// values used for scaling and shifting
 // Create game board
 GameBoard *gameboard;
 
-// Create game pieces
-XPiece *xPiece1;
-OPiece *oPiece1;
+// Create game piece holders for click event
+XPiece *xPiece;
+OPiece *oPiece;
+GamePiece *object;
 
 //<<<<<<<<<<<<<<<<<<<<<<< custom random function>>>>>>>>>>>>>>>>>>>>
 
-int random(int m) {
+int random(int m)
+{
 	return rand() % m;
 }
 
@@ -73,13 +75,42 @@ void myDisplay(void)
 	gameboard->drawGameBoard();
 
 	// draw pieces
-	xPiece1->draw(GL_RENDER);
-	oPiece1->draw(GL_RENDER);
+	xPiece->draw(GL_RENDER);
+	oPiece->draw(GL_RENDER);
 
 	// swap buffers
 	glutSwapBuffers();
 
 }
+
+//<<<<<<<<<<<<<<<<<<<<< processHits >>>>>>>>>>>>>>
+void processHits(GLint hits, GLuint buffer[], int x, int y) {
+
+	GLuint *ptr;
+	ptr = (GLuint *)buffer + 3;
+
+	if (hits == 0) {
+		cout << "You didn't even hit it!\n";
+		return;
+	}
+
+	switch (*ptr) {
+		case XPIECE:
+			object = xPiece;
+			
+			// verify click is working
+			cout << "X piece!\n";
+
+			break;
+		case OPIECE:
+			object = oPiece;
+			
+			// verify click is working
+			cout << "O piece!\n";
+	}
+	
+}
+
 
 //<<<<<<<<<<<<<<<<<<<<<<<< click >>>>>>>>>>>>>>>>>
 void click(int x, int y)
@@ -106,11 +137,12 @@ void click(int x, int y)
 
 		// create the 5x5 area
 		gluPickMatrix((GLdouble)x, (GLdouble)(viewport[3] - y), 5.0, 5.0, viewport);
-		gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
+		gluOrtho2D(0.0, (GLdouble)screenWidth, 0.0, (GLdouble)screenHeight);
+		//gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
 
 		// redraw the pieces
-		xPiece1->draw(GL_SELECT);
-		oPiece1->draw(GL_SELECT);
+		xPiece->draw(GL_SELECT);
+		oPiece->draw(GL_SELECT);
 
 		glMatrixMode(GL_PROJECTION);
 
@@ -120,7 +152,7 @@ void click(int x, int y)
 
 	hits = glRenderMode(GL_RENDER);
 	
-	// process the hits
+	processHits(hits, selectBuf, x, y);
 
 	glutPostRedisplay();
 }
@@ -139,8 +171,8 @@ int main(int argc, char** argv)
 {
 
 	// Game Pieces
-	xPiece1 = new XPiece(550, 150, XPIECE);
-	oPiece1 = new OPiece(550, 75, OPIECE);
+	xPiece = new XPiece(550, 150, XPIECE);
+	oPiece = new OPiece(550, 75, OPIECE);
 
 	// Basic glut setup
 	glutInit(&argc, argv);							// initialize the toolkit
