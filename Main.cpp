@@ -12,6 +12,8 @@
 #include "GamePiece.h"
 #include "Gameboard.h"
 
+#define SIZE 8
+
 #define XPIECE 6
 #define OPIECE 9
 
@@ -79,12 +81,56 @@ void myDisplay(void)
 
 }
 
+//<<<<<<<<<<<<<<<<<<<<<<<< click >>>>>>>>>>>>>>>>>
+void click(int x, int y)
+{
+	GLuint selectBuf[SIZE];
+	GLint hits;
+	GLint viewport[4];
+
+	glGetIntegerv(GL_VIEWPORT, viewport);
+
+	glSelectBuffer(SIZE, selectBuf);
+	glRenderMode(GL_SELECT);
+
+	glInitNames();
+	glPushName(0);
+
+	glMatrixMode(GL_PROJECTION);
+
+	// create 5x5-pixel area around cursor location
+	glPushMatrix();
+
+		// reset matrix
+		glLoadIdentity();
+
+		// create the 5x5 area
+		gluPickMatrix((GLdouble)x, (GLdouble)(viewport[3] - y), 5.0, 5.0, viewport);
+		gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
+
+		// redraw the pieces
+		xPiece1->draw(GL_SELECT);
+		oPiece1->draw(GL_SELECT);
+
+		glMatrixMode(GL_PROJECTION);
+
+	glPopMatrix();
+
+	glFlush();
+
+	hits = glRenderMode(GL_RENDER);
+	
+	// process the hits
+
+	glutPostRedisplay();
+}
+
 //<<<<<<<<<<<<<<<<<<<<<<<< myMouse >>>>>>>>>>>>>>>>>
 void myMouse(int button, int state, int x, int y)
 {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
-		// handle click
+		click(x, y);
 	}
 }
 
