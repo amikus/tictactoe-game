@@ -14,6 +14,16 @@ GameBoard::~GameBoard() {
 // draw GameBoard
 void GameBoard::drawGameBoard() {
 
+	GLfloat barLeft = -1.5;
+	GLfloat barRight = 0.0;
+	GLfloat barTop = 1.0;
+	GLfloat barBottom = 0.5;
+	
+	GLfloat postLeft = -1.0;
+	GLfloat postRight = -0.5;
+	GLfloat postTop = 1.5;
+	GLfloat postBottom = 0.0;
+
 	// set color to blue
 	glColor3f(0.0f, 0.0f, 1.0f);
 
@@ -21,20 +31,20 @@ void GameBoard::drawGameBoard() {
 	glBegin(GL_LINES);
 
 		// top line
-		glVertex2f(75.0, 325.0);
-		glVertex2f(375.0, 325.0);
+		glVertex2f(barLeft, barTop);
+		glVertex2f(barRight, barTop);
 
 		// bottom line
-		glVertex2f(75.0, 225.0);
-		glVertex2f(375.0, 225.0);
+		glVertex2f(barLeft, barBottom);
+		glVertex2f(barRight, barBottom);
 
 		// left line
-		glVertex2f(175.0, 425.0);
-		glVertex2f(175.0, 125.0);
+		glVertex2f(postLeft, postTop);
+		glVertex2f(postLeft, postBottom);
 
 		// right line
-		glVertex2f(275.0, 425.0);
-		glVertex2f(275.0, 125.0);
+		glVertex2f(postRight, postTop);
+		glVertex2f(postRight, postBottom);
 
 	glEnd();
 

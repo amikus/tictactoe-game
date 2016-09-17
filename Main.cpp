@@ -37,6 +37,10 @@ int random(int m)
 	return rand() % m;
 }
 
+// I don't understand this function...
+double d2w(int d) {
+	return (d / screenWidth) * 4.0 - screenHeight;
+}
 
 
 //<<<<<<<<<<<<<<<<<<<<<<< myInit >>>>>>>>>>>>>>>>>>>>
@@ -46,14 +50,8 @@ void myInit(void)
 	glColor3f(1.0f, 1.0f, 1.0f);			// drawing color: white 
 	glLineWidth(5.0);						// a line is 5 pixels wide
 	glMatrixMode(GL_PROJECTION); 			// set "camera shape"
-	glLoadIdentity();
-	gluOrtho2D(0.0, (GLdouble)screenWidth, 0.0, (GLdouble)screenHeight);
-
-	// set values used for scaling and shifting
-	A = screenWidth / 4.0;					
-	B = 0.0;
-	C = D = screenHeight / 2.0;
-
+	glLoadIdentity();						// reset matrix
+	gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
 
 }
 
@@ -137,12 +135,11 @@ void click(int x, int y)
 
 		// create the 5x5 area
 		gluPickMatrix((GLdouble)x, (GLdouble)(viewport[3] - y), 5.0, 5.0, viewport);
-		gluOrtho2D(0.0, (GLdouble)screenWidth, 0.0, (GLdouble)screenHeight);
-		//gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
+		gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
 
 		// redraw the pieces
-		xPiece->draw(GL_SELECT);
-		oPiece->draw(GL_SELECT);
+		//xPiece->draw(GL_SELECT);
+		//oPiece->draw(GL_SELECT);
 
 		glMatrixMode(GL_PROJECTION);
 
@@ -168,24 +165,35 @@ void myMouse(int button, int state, int x, int y)
 
 void myMotion(int x, int y)
 {
-	// do stuff
-
+	// set new xy coordinates for object that's clicked on
+	//object->setXY(d2w(x), d2w(screenHeight - y));
 	glutPostRedisplay();
 }
+
+void myReshape(int w, int h)
+{
+	glViewport(0, 0, w, h);
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+}
+
 
 //<<<<<<<<<<<<<<<<<<<<<<<< main >>>>>>>>>>>>>>>>>>>>>>
 int main(int argc, char** argv)
 {
 
 	// Game Pieces
-	xPiece = new XPiece(550, 150, XPIECE);
-	oPiece = new OPiece(550, 75, OPIECE);
+	xPiece = new XPiece(1.25, 0.25, XPIECE);
+	oPiece = new OPiece(1.25, 1.0, OPIECE);
 
 	// Basic glut setup
 	glutInit(&argc, argv);							// initialize the toolkit
 	glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);	// set display mode
-	glutInitWindowSize(screenWidth, screenHeight);	// set window size
-	glutInitWindowPosition(100, 150);				// set window position on screen
+	glutInitWindowSize(500, 500);					// set window size
+	glutInitWindowPosition(0, 0);					// set window position on screen
 	glutCreateWindow("Tic Tac Toe");				// open the screen window
 
 	// register callback functions
@@ -193,6 +201,7 @@ int main(int argc, char** argv)
 	glutMotionFunc(myMotion);		// motion
 	glutDisplayFunc(myDisplay);     // redraw
 	glutIdleFunc(myIdle);			// idle
+	glutReshapeFunc(myReshape);		// resize
 
 	myInit();						// additional initializations
 

@@ -21,7 +21,7 @@ void OPiece::draw(GLenum mode) {
 	glColor3f(1.0f, 0.0f, 0.0f);
 
 	// draw shape
-	glRectf(x - 25.0f, y - 25.0f, x + 25.0f, y + 25.0f);
+	glRectf(x - 0.25f, y - 0.25f, x + 0.25f, y + 0.25f);
 
 	// set color back to white
 	glColor3f(1.0f, 1.0f, 1.0f);
