@@ -166,6 +166,13 @@ void myMouse(int button, int state, int x, int y)
 	}
 }
 
+void myMotion(int x, int y)
+{
+	// do stuff
+
+	glutPostRedisplay();
+}
+
 //<<<<<<<<<<<<<<<<<<<<<<<< main >>>>>>>>>>>>>>>>>>>>>>
 int main(int argc, char** argv)
 {
@@ -182,15 +189,12 @@ int main(int argc, char** argv)
 	glutCreateWindow("Tic Tac Toe");				// open the screen window
 
 	// register callback functions
-	glutMouseFunc(myMouse);
-
-	glutDisplayFunc(myDisplay);     // register redraw function
-
+	glutMouseFunc(myMouse);			// mouse
+	glutMotionFunc(myMotion);		// motion
+	glutDisplayFunc(myDisplay);     // redraw
+	glutIdleFunc(myIdle);			// idle
 
 	myInit();						// additional initializations
-
-
-	glutIdleFunc(myIdle);
 
 	glutMainLoop(); 				// perpetual loop
 
