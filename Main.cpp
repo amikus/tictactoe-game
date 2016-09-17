@@ -79,6 +79,14 @@ void myDisplay(void)
 
 }
 
+//<<<<<<<<<<<<<<<<<<<<<<<< myMouse >>>>>>>>>>>>>>>>>
+void myMouse(int button, int state, int x, int y)
+{
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
+	{
+		// handle click
+	}
+}
 
 //<<<<<<<<<<<<<<<<<<<<<<<< main >>>>>>>>>>>>>>>>>>>>>>
 int main(int argc, char** argv)
@@ -96,7 +104,7 @@ int main(int argc, char** argv)
 	glutCreateWindow("Tic Tac Toe");				// open the screen window
 
 	// register callback functions
-
+	glutMouseFunc(myMouse);
 
 	glutDisplayFunc(myDisplay);     // register redraw function
 
