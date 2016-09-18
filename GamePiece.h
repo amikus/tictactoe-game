@@ -22,7 +22,8 @@ protected:
 	GLfloat x, y;
 	GLint id;
 
-	bool draggable;
+	GLboolean winning;		// set to True if this is a winning piece
+	GLboolean draggable;	// set to True if this is a draggable piece
 
 public:
 
@@ -30,6 +31,9 @@ public:
 	~GamePiece();											// destructor
 
 	void setXY(GLfloat x, GLfloat y);		// set xy positions
+	void setWinning(GLboolean);				// set win state
+	void setDraggable(GLboolean);			// set drag state
+
 	virtual void draw(GLenum mode) = 0;		// draw piece
 
 };
