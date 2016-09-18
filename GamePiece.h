@@ -31,8 +31,12 @@ public:
 	~GamePiece();											// destructor
 
 	void setXY(GLfloat x, GLfloat y);		// set xy positions
+
 	void setWinning(GLboolean);				// set win state
+	GLboolean getWinning();					// get win state
+
 	void setDraggable(GLboolean);			// set drag state
+	GLboolean getDraggable();				// get drag state
 
 	virtual void draw(GLenum mode) = 0;		// draw piece
 
