@@ -28,7 +28,7 @@ void GamePiece::setWinning(GLboolean winning) {
 
 // get win state
 GLboolean GamePiece::getWinning() {
-	return this->winning;
+	return winning;
 }
 
 // set drag state
@@ -38,5 +38,5 @@ void GamePiece::setDraggable(GLboolean draggable) {
 
 // get drag state
 GLboolean GamePiece::getDraggable() {
-	return this->draggable;
+	return draggable;
 }
