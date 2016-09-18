@@ -186,8 +186,10 @@ void myMouse(int button, int state, int x, int y)
 
 void myMotion(int x, int y)
 {
-	// set new xy coordinates for object that's clicked on
-	object->setXY(d2w(x), d2w(500 - y));
+	if (object) {
+		// set new xy coordinates for object that's clicked on
+		object->setXY(d2w(x), d2w(500 - y));
+	}
 	glutPostRedisplay();
 }
 
