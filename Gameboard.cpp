@@ -1,12 +1,21 @@
 #include "GameBoard.h"
 
+char GameBoard::boardState[9];
+
+int GameBoard::winStates[8][3] = { { 0, 1, 2 },
+{ 3, 4, 5 },
+{ 6, 7, 8 },
+{ 0, 3, 6 },
+{ 1, 4, 7 },
+{ 2, 5, 8 },
+{ 0, 4, 8 },
+{ 2, 4, 6 } };
+
 // GameBoard constructor
 GameBoard::GameBoard() {
-
 	for (int i = 0; i < 9; i++) {
 		boardState[i] = ' ';
 	}
-
 };
 
 // GameBoard destructor
@@ -14,14 +23,7 @@ GameBoard::~GameBoard() {
 
 }
 
-static int winStates[8][3] = {  {0, 1, 2},
-								{3, 4, 5},
-								{6, 7, 8},
-								{0, 3, 6},
-								{1, 4, 7},
-								{2, 5, 8},
-								{0, 4, 8},
-								{2, 4, 6} };
+
 
 // draw GameBoard
 void GameBoard::drawGameBoard() {

@@ -14,18 +14,18 @@ using namespace std;
 
 class GameBoard {
 
-private:
+protected:
 
 	// unchanging variables
 
 	// changeable variables
-
+	static char boardState[9];			// 3x3 grid for placement of pieces
+	static int winStates[8][3];			// combinations that result in win state
 public:
 
 	void drawGameBoard();				// draw shape and dot array
 
-	static char boardState[9];			// 3x3 grid for placement of pieces
-	static int winStates[8][3];			// combinations that result in win state
+
 
 	GameBoard();						//  constructor
 	~GameBoard();						//  destructor

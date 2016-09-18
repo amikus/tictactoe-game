@@ -11,11 +11,20 @@
 #include "OPiece.h"
 #include "GamePiece.h"
 #include "Gameboard.h"
+#include "Main.h"
 
 #define SIZE 8
 
-#define XPIECE 6
-#define OPIECE 9
+#define XPIECE1 1
+#define XPIECE2 2
+#define XPIECE3 3
+#define XPIECE4 4
+#define XPIECE5 5
+#define OPIECE1 6
+#define OPIECE2 7
+#define OPIECE3 8
+#define OPIECE4 9
+#define OPIECE5 10
 
 // establish screen size
 const int screenWidth = 640;		// width of screen window in pixels 
@@ -26,8 +35,16 @@ GLdouble A, B, C, D;				// values used for scaling and shifting
 GameBoard *gameboard;
 
 // Create game piece holders for click event
-XPiece *xPiece;
-OPiece *oPiece;
+XPiece *xPiece1;
+XPiece *xPiece2;
+XPiece *xPiece3;
+XPiece *xPiece4;
+XPiece *xPiece5;
+OPiece *oPiece1;
+OPiece *oPiece2;
+OPiece *oPiece3;
+OPiece *oPiece4;
+OPiece *oPiece5;
 GamePiece *object;
 
 //<<<<<<<<<<<<<<<<<<<<<<< custom random function>>>>>>>>>>>>>>>>>>>>
@@ -89,8 +106,16 @@ void myDisplay(void)
 	gameboard->drawGameBoard();
 
 	// draw pieces
-	xPiece->draw(GL_RENDER);
-	oPiece->draw(GL_RENDER);
+	xPiece1->draw(GL_RENDER);
+	xPiece2->draw(GL_RENDER);
+	xPiece3->draw(GL_RENDER);
+	xPiece4->draw(GL_RENDER);
+	xPiece5->draw(GL_RENDER);
+	oPiece1->draw(GL_RENDER);
+	oPiece2->draw(GL_RENDER);
+	oPiece3->draw(GL_RENDER);
+	oPiece4->draw(GL_RENDER);
+	oPiece5->draw(GL_RENDER);
 
 	// write words
 	glColor3f(1.0f, 1.0f, 1.0f);						// set word color to white
@@ -114,18 +139,32 @@ void processHits(GLint hits, GLuint buffer[], int x, int y) {
 	}
 
 	switch (*ptr) {
-		case XPIECE:
-			object = xPiece;
-			
-			// verify click is working
-			cout << "X piece!\n";
-
+		case XPIECE1:
+			object = xPiece1;
 			break;
-		case OPIECE:
-			object = oPiece;
-			
-			// verify click is working
-			cout << "O piece!\n";
+		case XPIECE2:
+			object = xPiece2;
+			break;
+		case XPIECE3:
+			object = xPiece3;
+			break;
+		case XPIECE4:
+			object = xPiece4;
+			break;
+		case XPIECE5:
+			object = xPiece5;
+			break;
+		case OPIECE1:
+			object = oPiece1;
+		case OPIECE2:
+			object = oPiece2;
+		case OPIECE3:
+			object = oPiece3;
+		case OPIECE4:
+			object = oPiece4;
+		case OPIECE5:
+			object = oPiece5;
+
 	}
 	
 }
@@ -159,8 +198,16 @@ void click(int x, int y)
 		gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
 
 		// redraw the pieces
-		xPiece->draw(GL_SELECT);
-		oPiece->draw(GL_SELECT);
+		xPiece1->draw(GL_RENDER);
+		xPiece2->draw(GL_RENDER);
+		xPiece3->draw(GL_RENDER);
+		xPiece4->draw(GL_RENDER);
+		xPiece5->draw(GL_RENDER);
+		oPiece1->draw(GL_RENDER);
+		oPiece2->draw(GL_RENDER);
+		oPiece3->draw(GL_RENDER);
+		oPiece4->draw(GL_RENDER);
+		oPiece5->draw(GL_RENDER);
 
 		glMatrixMode(GL_PROJECTION);
 
@@ -214,8 +261,17 @@ int main(int argc, char** argv)
 {
 
 	// Game Pieces
-	xPiece = new XPiece(1.25, 0.25, XPIECE);
-	oPiece = new OPiece(1.25, 1.0, OPIECE);
+	xPiece1 = new XPiece(1.25, 0.0, XPIECE1);
+	xPiece2 = new XPiece(1.25, 0.4, XPIECE2);
+	xPiece3 = new XPiece(1.25, 0.8, XPIECE3);
+	xPiece4 = new XPiece(1.25, 1.2, XPIECE4);
+	xPiece5 = new XPiece(1.25, 1.6, XPIECE5);
+
+	oPiece1 = new OPiece(1.0, 0.0, OPIECE1);
+	oPiece2 = new OPiece(1.0, 0.4, OPIECE2);
+	oPiece3 = new OPiece(1.0, 0.8, OPIECE3);
+	oPiece4 = new OPiece(1.0, 1.2, OPIECE4);
+	oPiece5 = new OPiece(1.0, 1.6, OPIECE5);
 
 	//xPiece->setDraggable(false);
 
