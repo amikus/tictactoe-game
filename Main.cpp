@@ -217,7 +217,7 @@ int main(int argc, char** argv)
 	xPiece = new XPiece(1.25, 0.25, XPIECE);
 	oPiece = new OPiece(1.25, 1.0, OPIECE);
 
-	xPiece->setDraggable(false);
+	//xPiece->setDraggable(false);
 
 	// Basic glut setup
 	glutInit(&argc, argv);							// initialize the toolkit
