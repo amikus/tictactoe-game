@@ -27,7 +27,7 @@ void XPiece::draw(GLenum mode) {
 	}
 
 	// draw shape
-	glRectf(x - 0.25f, y - 0.25f, x + 0.25f, y + 0.25f);
+	glRectf(x - 0.15f, y - 0.15f, x + 0.15f, y + 0.15f);
 
 	// set color back to white
 	glColor3f(1.0f, 1.0f, 1.0f);

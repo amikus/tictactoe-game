@@ -15,16 +15,17 @@
 
 #define SIZE 8
 
-#define XPIECE1 1
-#define XPIECE2 2
-#define XPIECE3 3
-#define XPIECE4 4
-#define XPIECE5 5
-#define OPIECE1 6
-#define OPIECE2 7
-#define OPIECE3 8
-#define OPIECE4 9
-#define OPIECE5 10
+#define XPIECE1 11
+#define XPIECE2 12
+#define XPIECE3 13
+#define XPIECE4 14
+#define XPIECE5 15
+
+#define OPIECE1 21
+#define OPIECE2 22
+#define OPIECE3 23
+#define OPIECE4 24
+#define OPIECE5 25
 
 // establish screen size
 const int screenWidth = 640;		// width of screen window in pixels 
@@ -34,7 +35,7 @@ GLdouble A, B, C, D;				// values used for scaling and shifting
 // Create game board
 GameBoard *gameboard;
 
-// Create game piece holders for click event
+// Create game piece holders for click events
 XPiece *xPiece1;
 XPiece *xPiece2;
 XPiece *xPiece3;
@@ -156,15 +157,18 @@ void processHits(GLint hits, GLuint buffer[], int x, int y) {
 			break;
 		case OPIECE1:
 			object = oPiece1;
+			break;
 		case OPIECE2:
 			object = oPiece2;
+			break;
 		case OPIECE3:
 			object = oPiece3;
+			break;
 		case OPIECE4:
 			object = oPiece4;
+			break;
 		case OPIECE5:
 			object = oPiece5;
-
 	}
 	
 }
@@ -198,16 +202,16 @@ void click(int x, int y)
 		gluOrtho2D(-2.0, 2.0, -2.0, 2.0);
 
 		// redraw the pieces
-		xPiece1->draw(GL_RENDER);
-		xPiece2->draw(GL_RENDER);
-		xPiece3->draw(GL_RENDER);
-		xPiece4->draw(GL_RENDER);
-		xPiece5->draw(GL_RENDER);
-		oPiece1->draw(GL_RENDER);
-		oPiece2->draw(GL_RENDER);
-		oPiece3->draw(GL_RENDER);
-		oPiece4->draw(GL_RENDER);
-		oPiece5->draw(GL_RENDER);
+		xPiece1->draw(GL_SELECT);
+		xPiece2->draw(GL_SELECT);
+		xPiece3->draw(GL_SELECT);
+		xPiece4->draw(GL_SELECT);
+		xPiece5->draw(GL_SELECT);
+		oPiece1->draw(GL_SELECT);
+		oPiece2->draw(GL_SELECT);
+		oPiece3->draw(GL_SELECT);
+		oPiece4->draw(GL_SELECT);
+		oPiece5->draw(GL_SELECT);
 
 		glMatrixMode(GL_PROJECTION);
 
@@ -261,11 +265,11 @@ int main(int argc, char** argv)
 {
 
 	// Game Pieces
-	xPiece1 = new XPiece(1.25, 0.0, XPIECE1);
-	xPiece2 = new XPiece(1.25, 0.4, XPIECE2);
-	xPiece3 = new XPiece(1.25, 0.8, XPIECE3);
-	xPiece4 = new XPiece(1.25, 1.2, XPIECE4);
-	xPiece5 = new XPiece(1.25, 1.6, XPIECE5);
+	xPiece1 = new XPiece(1.5, 0.0, XPIECE1);
+	xPiece2 = new XPiece(1.5, 0.4, XPIECE2);
+	xPiece3 = new XPiece(1.5, 0.8, XPIECE3);
+	xPiece4 = new XPiece(1.5, 1.2, XPIECE4);
+	xPiece5 = new XPiece(1.5, 1.6, XPIECE5);
 
 	oPiece1 = new OPiece(1.0, 0.0, OPIECE1);
 	oPiece2 = new OPiece(1.0, 0.4, OPIECE2);
