@@ -35,6 +35,8 @@ GLdouble A, B, C, D;				// values used for scaling and shifting
 // Create game board
 GameBoard *gameboard;
 
+char winState = ' ';
+
 // Create game piece holders for click events
 XPiece *xPiece1;
 XPiece *xPiece2;
@@ -122,6 +124,13 @@ void myDisplay(void)
 	glColor3f(1.0f, 1.0f, 1.0f);						// set word color to white
 	displayText(-1.75f, -1.0f, "Andrew Klem's", 0.004);
 	displayText(-1.75f, -1.75f, "Tic Tac Toe", 0.004);
+
+	if (winState == 'o') {
+		displayText(-1.5f, 1.65f, "O wins!", 0.0025);
+	}
+	else if (winState == 'x') {
+		displayText(-1.75f, 1.75f, "X wins!", 0.002);
+	}
 
 	// swap buffers
 	glutSwapBuffers();
@@ -234,7 +243,7 @@ void myMouse(int button, int state, int x, int y)
 		click(x, y);
 	}
 
-	if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && winState == ' ')
 	{
 		int boardPosition;
 
@@ -246,13 +255,13 @@ void myMouse(int button, int state, int x, int y)
 				string className = typeid(*object).name();
 
 				if (className == "class OPiece") {
-					cout << "That's an OPiece\n";
-					gameboard->updateBoardState(boardPosition - 1, 'o');
+					winState = gameboard->updateBoardState(boardPosition - 1, 'o');
 				}
 				else if (className == "class XPiece") {
-					cout << "That's an XPiece\n";
-					gameboard->updateBoardState(boardPosition - 1, 'x');
+					winState = gameboard->updateBoardState(boardPosition - 1, 'x');
 				}
+				
+				cout << "Win state!: " << winState << "\n";
 			}
 		}
 
