@@ -236,13 +236,27 @@ void myMouse(int button, int state, int x, int y)
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)
 	{
+		int boardPosition;
+
 		if (object) {
-			int boardPosition = gameboard->checkBoardPosition(object->getX(), object->getY());
+			boardPosition = gameboard->checkBoardPosition(object->getX(), object->getY());
 			
 			if (boardPosition != 0) {
 				object->setDraggable(false);
+				string className = typeid(*object).name();
+
+				if (className == "class OPiece") {
+					cout << "That's an OPiece\n";
+					gameboard->updateBoardState(boardPosition - 1, 'o');
+				}
+				else if (className == "class XPiece") {
+					cout << "That's an XPiece\n";
+					gameboard->updateBoardState(boardPosition - 1, 'x');
+				}
 			}
 		}
+
+		boardPosition = 0;
 
 	}
 

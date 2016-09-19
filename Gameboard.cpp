@@ -104,7 +104,7 @@ int GameBoard::checkBoardPosition(float x, float y)
 
 }
 
-void GameBoard::updateBoardState(int boardSpace)
+void GameBoard::updateBoardState(int boardSpace, char type)
 {
-
+	boardState[boardSpace] = type;
 }
