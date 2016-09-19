@@ -66,3 +66,8 @@ void GameBoard::drawGameBoard() {
 	glColor3f(1.0f, 1.0f, 1.0f);
 
 }
+
+void GameBoard::updateBoardState(int x, int y)
+{
+
+}

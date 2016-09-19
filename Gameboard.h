@@ -25,7 +25,7 @@ public:
 
 	void drawGameBoard();				// draw shape and dot array
 
-
+	void updateBoardState(int x, int y);				// update state of GameBoard
 
 	GameBoard();						//  constructor
 	~GameBoard();						//  destructor

@@ -48,6 +48,9 @@ OPiece *oPiece4;
 OPiece *oPiece5;
 GamePiece *object;
 
+XPiece xPieces[5];
+OPiece oPieces[5];
+
 //<<<<<<<<<<<<<<<<<<<<<<< custom random function>>>>>>>>>>>>>>>>>>>>
 
 int random(int m)
@@ -170,7 +173,7 @@ void processHits(GLint hits, GLuint buffer[], int x, int y) {
 		case OPIECE5:
 			object = oPiece5;
 	}
-	
+
 }
 
 
@@ -233,6 +236,7 @@ void myMouse(int button, int state, int x, int y)
 	{
 		click(x, y);
 	}
+
 }
 
 void myMotion(int x, int y)
