@@ -104,8 +104,23 @@ int GameBoard::checkBoardPosition(float x, float y)
 
 }
 
-void GameBoard::updateBoardState(int boardSpace, char type)
+char GameBoard::updateBoardState(int boardSpace, char type)
 {
 	boardState[boardSpace] = type;
 	
+	string winCheck = "";
+
+	for (int i = 0; i < 8; i++) {
+		for (int j = 0; j < 3; j++) {
+			winCheck += boardState[winStates[i][j]];
+		}
+		if (winCheck == "ooo") {
+			return 'o';
+		} else if (winCheck == "xxx") {
+			return 'x';
+		}
+		winCheck = "";
+	}
+
+	return ' ';
 }
