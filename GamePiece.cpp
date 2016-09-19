@@ -21,11 +21,11 @@ void GamePiece::setXY(GLfloat x, GLfloat y) {
 	this->y = y;
 };
 
-int GamePiece::getX() {
+float GamePiece::getX() {
 	return x;
 };
 
-int GamePiece::getY() {
+float GamePiece::getY() {
 	return y;
 };
 

@@ -31,8 +31,8 @@ public:
 	~GamePiece();											// destructor
 
 	void setXY(GLfloat x, GLfloat y);		// set xy positions
-	int getX();								// get x position
-	int getY();								// get y position
+	float getX();								// get x position
+	float getY();								// get y position
 
 	void setWinning(GLboolean);				// set win state
 	GLboolean getWinning();					// get win state

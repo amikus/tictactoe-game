@@ -234,6 +234,18 @@ void myMouse(int button, int state, int x, int y)
 		click(x, y);
 	}
 
+	if (button == GLUT_LEFT_BUTTON && state == GLUT_UP)
+	{
+		if (object) {
+			int boardPosition = gameboard->checkBoardPosition(object->getX(), object->getY());
+			
+			if (boardPosition != 0) {
+				object->setDraggable(false);
+			}
+		}
+
+	}
+
 }
 
 void myMotion(int x, int y)

@@ -25,7 +25,8 @@ public:
 
 	void drawGameBoard();				// draw shape and dot array
 
-	void updateBoardState(int x, int y);				// update state of GameBoard
+	int checkBoardPosition(float x, float y);				// check to see if (x,y) coords falls within octothrop square
+	void updateBoardState(int boardSpace);				// update state of GameBoard
 
 	GameBoard();						//  constructor
 	~GameBoard();						//  destructor
