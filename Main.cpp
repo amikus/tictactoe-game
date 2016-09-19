@@ -48,9 +48,6 @@ OPiece *oPiece4;
 OPiece *oPiece5;
 GamePiece *object;
 
-XPiece xPieces[5];
-OPiece oPieces[5];
-
 //<<<<<<<<<<<<<<<<<<<<<<< custom random function>>>>>>>>>>>>>>>>>>>>
 
 int random(int m)

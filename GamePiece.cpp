@@ -21,6 +21,14 @@ void GamePiece::setXY(GLfloat x, GLfloat y) {
 	this->y = y;
 };
 
+int GamePiece::getX() {
+	return x;
+};
+
+int GamePiece::getY() {
+	return y;
+};
+
 // set win state
 void GamePiece::setWinning(GLboolean winning) {
 	this->winning = winning;
